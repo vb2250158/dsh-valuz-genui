@@ -1,5 +1,11 @@
 # dsh-valuz-genui
 
+## Maintained fork / 维护分支
+
+This fork retains the upstream UI behavior. Version 0.2.3 fixes Windows CSS build paths and pins pnpm 11.28.5 so Git installs can prepare both plugin bundles. Install a full commit from this fork through the DSH plugin manager; do not use a local directory as the shared installation source. See [release notes](RELEASES.md).
+
+本维护分支沿用上游交互功能。0.2.3 修复 Windows CSS 构建路径，并固定 pnpm 11.28.5，确保 Git 安装能够构建宿主与浏览器产物。通过 DSH 插件管理器安装本分支的完整提交，不使用本地目录作为共享安装来源。详见[版本记录](RELEASES.md)。
+
 A [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) plugin that gives the model a `generate_ui` tool: the **model itself authors** an [A2UI](https://a2ui.org) v0.9.1 document and passes it to `generate_ui`, and the browser renders it as an **interactive surface inline in the chat** — charts, KPI cards, tables, forms, dashboards — **streaming as the model writes the call**, and whose interactions come back to the model.
 
 There is **no nested model call**: the UI is the model's own streamed output, so it appears live (like a fenced block), costs one model turn, and can't fail with a mid-stream error from a second request. It builds on the provider-agnostic [valuz-genui](https://github.com/valuz-ai/valuz-genui) core (76-component A2UI catalog, streaming sanitizer, React renderer).

@@ -12,7 +12,7 @@
  */
 import { readFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
-import { basename } from 'node:path'
+import { basename, dirname, resolve as resolvePath } from 'node:path'
 import { defineConfig, type UserConfig } from 'tsdown'
 import { bundle, transform } from 'lightningcss'
 
@@ -45,7 +45,7 @@ const cssPlugin = {
     // Bare specifiers (`@valuz/a2ui/styles.css`) go through the package
     // exports map; relative ones resolve against the importer.
     const abs = importer !== undefined && source.startsWith('.')
-      ? new URL(source, `file://${importer}`).pathname
+      ? resolvePath(dirname(importer), source)
       : resolve(source)
     return CSS_VIRTUAL_PREFIX + abs + CSS_VIRTUAL_SUFFIX
   },
