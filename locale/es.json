@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Interfaz generativa (A2UI)",
+    "description": "El modelo genera paneles, gráficos, indicadores, tablas y formularios interactivos en el chat. Se muestran mientras se generan y las acciones se envían al modelo."
+  }
+}

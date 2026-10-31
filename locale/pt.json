@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Interface generativa (A2UI)",
+    "description": "O modelo gera painéis, gráficos, indicadores, tabelas e formulários interativos na conversa. São apresentados durante a geração e as ações são enviadas ao modelo."
+  }
+}

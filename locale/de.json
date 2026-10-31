@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Generative Oberfläche (A2UI)",
+    "description": "Das Modell erzeugt interaktive Dashboards, Diagramme, Kennzahlen, Tabellen und Formulare im Chat. Sie werden während der Erstellung angezeigt; Aktionen gehen zurück an das Modell."
+  }
+}

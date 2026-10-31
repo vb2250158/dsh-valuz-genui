@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Interface générative (A2UI)",
+    "description": "Le modèle génère des tableaux de bord, graphiques, indicateurs, tableaux et formulaires interactifs dans la discussion. Ils s’affichent en cours de génération et les actions sont transmises au modèle."
+  }
+}
