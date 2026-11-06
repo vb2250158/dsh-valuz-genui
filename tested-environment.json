@@ -1,16 +1,19 @@
 {
   "schemaVersion": 1,
   "candidate": {
-    "pluginVersion": "0.2.4",
-    "coreVersion": "0.2.2-rc.1",
-    "coreUpstream": "fcc0ad462172522aaf5c93a7b2e01f6b9f0b0159",
-    "cordis": "4.1.0",
+    "pluginVersion": "0.2.5",
+    "coreVersion": "0.2.2-alpha.3",
+    "coreRevision": "3b0c646a175458e02743db1053f43fd34bad15b7",
+    "cordis": "4.0.6-alpha.2",
     "mode": "source-web",
-    "status": "Current-Core typechecks, focused behavior regressions and plugin bundles verified; full source-Web combination and formal installation belong to maintenance owner",
+    "status": "Source tests, Host/Client typechecks and both plugin bundles verified against the declared current Core; candidate combination and formal installation remain separate",
     "testEvidence": {
       "tests": 40,
-      "surfaceFixtureRetest": 7,
-      "nativeToolBatchExecutor": true
+      "nativeToolBatchExecutor": true,
+      "hostTypecheck": true,
+      "clientTypecheck": true,
+      "coreSourceAliases": true,
+      "hostAndClientBundles": true
     }
   },
   "runtime": {

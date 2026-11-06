@@ -1,6 +1,6 @@
 {
   "name": "@valuz/dsh-valuz-genui",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "DeepSeek Harness plugin: generate_ui — the model turns a request (+ data) into an A2UI document rendered as an interactive surface in the chat, generated through dsh's own model service (valuz-genui core)",
   "keywords": [
     "deepseek-harness",
@@ -62,7 +62,7 @@
     "check": "pnpm run typecheck && pnpm run test && pnpm run build"
   },
   "peerDependencies": {
-    "@deepseek-ai/cordis": "~4.1.0",
+    "@deepseek-ai/cordis": "~4.1.0 || 4.0.6-alpha.2",
     "@deepseek-ai/dsh-client-ui-chat": ">=0.2.0-rc.2 <0.3.0",
     "@deepseek-ai/dsh-client-ui-conversation": ">=0.2.0-rc.2 <0.3.0",
     "@deepseek-ai/dsh-client-ui-slots": ">=0.2.0-rc.2 <0.3.0",

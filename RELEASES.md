@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+### 0.2.5
+
+- Admit the source-Web host's exact Cordis 4.0.6-alpha.2 peer while retaining the existing 4.1 range. Keep the tool and renderer unchanged; verify them against the declared current Core source.
+- Explicitly require the fixed Git archive's prepare approval and installed Host/Client entry verification. A skipped build is not a usable installation.
+- 补充接纳源码 Web 宿主的精确 Cordis 4.0.6-alpha.2 同级依赖，保留已有 4.1 范围。工具及渲染器行为不变，按声明的当前 Core 源码验收。
+- 明确固定 Git 归档的 prepare 审批和安装后宿主、客户端入口验证；跳过构建不算安装可用。
+
 ### 0.2.4
 
 - Admit the current Cordis 4.1 Host, align development packages with DSH 0.2.2-rc.1, and exercise tool results through the current native batch executor. Preserve the tool, prompt, streaming renderer, and interaction behavior.

@@ -2,6 +2,10 @@
 
 ## Maintained fork / 维护分支
 
+Version 0.2.5 also admits the maintained source-Web host's exact Cordis 4.0.6-alpha.2 dependency. Its production code is unchanged from 0.2.4. Git installations require approval for the exact archive's `prepare` build; skipping that build leaves the declared Host and Client entry files absent. Verify both built files and the `generate_ui` tool after installation.
+
+0.2.5 补充接纳维护中源码 Web 宿主的精确 Cordis 4.0.6-alpha.2 依赖，生产代码沿用 0.2.4。Git 安装必须批准该固定归档的 `prepare` 构建；跳过构建会缺少声明的宿主与客户端入口文件。安装后须核对两个编译文件及 `generate_ui` 工具实际生效。
+
 Version 0.2.4 targets the maintained Windows source-Web environment: DSH 0.2.2-rc.1 and Cordis 4.1.0 on Node 24.15.0. The tool test uses the current native batch executor. See [tested-environment.json](tested-environment.json) for candidate and formal status; this declaration does not establish a formal installation.
 
 0.2.4 面向当前维护的 Windows 源码 Web 环境：DSH 0.2.2-rc.1、Cordis 4.1.0、Node 24.15.0。工具测试使用当前原生批量执行器。[tested-environment.json](tested-environment.json) 区分候选与正式状态；此声明不代表已经实装。
