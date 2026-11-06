@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### 0.2.4
+
+- Admit the current Cordis 4.1 Host, align development packages with DSH 0.2.2-rc.1, and exercise tool results through the current native batch executor. Preserve the tool, prompt, streaming renderer, and interaction behavior.
+- 允许当前 Cordis 4.1 宿主加载，开发依赖对齐 DSH 0.2.2-rc.1，通过当前原生批量执行器验证工具结果；保留工具、提示、流式渲染及交互行为。
+
 ### 0.2.3
 
 - Resolve relative CSS imports as filesystem paths, preserving Windows drive letters and filenames. Use pnpm 11.28.5 instead of the unavailable 11.12.0 release when preparing Git dependencies.

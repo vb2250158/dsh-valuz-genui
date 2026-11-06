@@ -2,6 +2,10 @@
 
 ## Maintained fork / 维护分支
 
+Version 0.2.4 targets the maintained Windows source-Web environment: DSH 0.2.2-rc.1 and Cordis 4.1.0 on Node 24.15.0. The tool test uses the current native batch executor. See [tested-environment.json](tested-environment.json) for candidate and formal status; this declaration does not establish a formal installation.
+
+0.2.4 面向当前维护的 Windows 源码 Web 环境：DSH 0.2.2-rc.1、Cordis 4.1.0、Node 24.15.0。工具测试使用当前原生批量执行器。[tested-environment.json](tested-environment.json) 区分候选与正式状态；此声明不代表已经实装。
+
 This fork retains the upstream UI behavior. Version 0.2.3 fixes Windows CSS build paths and pins pnpm 11.28.5 so Git installs can prepare both plugin bundles. Install a full commit from this fork through the DSH plugin manager; do not use a local directory as the shared installation source. See [release notes](RELEASES.md).
 
 本维护分支沿用上游交互功能。0.2.3 修复 Windows CSS 构建路径，并固定 pnpm 11.28.5，确保 Git 安装能够构建宿主与浏览器产物。通过 DSH 插件管理器安装本分支的完整提交，不使用本地目录作为共享安装来源。详见[版本记录](RELEASES.md)。

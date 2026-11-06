@@ -8,6 +8,7 @@ import { Context } from '@deepseek-ai/cordis'
 import { ToolCallId } from '@deepseek-ai/dsh-llm'
 import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
 import ToolRuntime from '@deepseek-ai/dsh-tools'
+import * as NativeToolExecutor from '@deepseek-ai/dsh-tool-executor-native'
 import SkillRuntime from '@deepseek-ai/dsh-skill'
 import { SUPPORTED_CATALOG_ID } from '@valuz/genui-core'
 import * as Genui from '../../src/index.ts'
@@ -25,19 +26,20 @@ async function mount(config?: Genui.Config, withSkills = false) {
   contexts.push(ctx)
   await ctx.plugin(SystemPrompt)
   await ctx.plugin(ToolRuntime)
+  await ctx.plugin(NativeToolExecutor)
   if (withSkills) await ctx.plugin(SkillRuntime)
   const fiber = await ctx.plugin(Genui, config)
   return { ctx, fiber }
 }
 
 let calls = 0
-function run(ctx: Context, args: unknown) {
-  return ctx.tools.execute({
+async function run(ctx: Context, args: unknown) {
+  const batch = await ctx.tools.execute({
     signal: new AbortController().signal,
-    callId: ToolCallId(`call-${++calls}`),
-    name: 'generate_ui',
-    arguments: args,
+    calls: [{ type: 'tool-call', id: ToolCallId(`call-${++calls}`), name: 'generate_ui', arguments: JSON.stringify(args) }],
   })
+  expect(batch.results).toHaveLength(1)
+  return batch.results[0]!.result
 }
 
 const text = (result: { content: { type: string; text?: string }[] }) =>

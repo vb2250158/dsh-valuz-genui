@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
-import { afterEach, describe, expect, it, vi } from 'vitest'
+import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest'
 import { GenuiSurface, GenuiTurnSurfaces, latestRevisions } from '../../src/client/GenuiSurface.tsx'
 import { en } from '../../src/client/locales.ts'
 import type { GenuiSurfaceChatData } from '../../src/client/node.ts'
@@ -22,7 +22,17 @@ function data(overrides: Partial<GenuiSurfaceChatData> = {}): GenuiSurfaceChatDa
   return { surfaceId: 'call-1', document: DOC, status: 'success', componentNames: ['Stack', 'Button'], warningCount: 0, ...overrides }
 }
 
-afterEach(cleanup)
+const originalScroll = Object.getOwnPropertyDescriptor(Element.prototype, 'scrollIntoView')
+const scrollIntoView = vi.fn()
+beforeAll(() => {
+  // jsdom has no layout scrolling; the renderer still calls the browser API.
+  Object.defineProperty(Element.prototype, 'scrollIntoView', { configurable: true, value: scrollIntoView })
+})
+afterEach(() => { cleanup(); scrollIntoView.mockClear() })
+afterAll(() => {
+  if (originalScroll) Object.defineProperty(Element.prototype, 'scrollIntoView', originalScroll)
+  else Reflect.deleteProperty(Element.prototype, 'scrollIntoView')
+})
 
 const location = (status: 'open' | 'closed') => ({ kind: 'step', turn: { turn: 1, status }, step: { step: 1, status } })
 
@@ -54,6 +64,7 @@ describe('GenuiSurface (process node)', () => {
     const { container } = draw(data({ status: 'running' }), 'closed')
     expect(container.querySelector('[data-genui-surface="call-1"]')).not.toBeNull()
     expect(screen.queryByText(/shown at the end of this turn/)).toBeNull()
+    expect(scrollIntoView).toHaveBeenCalled()
   })
 })
 
